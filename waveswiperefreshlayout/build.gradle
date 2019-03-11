@@ -6,7 +6,6 @@ version = "1.0.1"
 
 android {
     compileSdkVersion 28
-    buildToolsVersion '28.0.2'
 
     defaultConfig {
         minSdkVersion 14
@@ -27,7 +26,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha02'
 }
 
 def siteUrl = 'https://github.com/hexuejian/WaveSwipeRefreshLayout'      // 项目的主页
@@ -63,11 +62,20 @@ install {
     }
 }
 
+tasks.withType(Javadoc) {//防止编码问题
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
+
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
 }
+
 task javadoc(type: Javadoc) {
+    options.encoding = "utf-8"
     source = android.sourceSets.main.java.srcDirs
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }

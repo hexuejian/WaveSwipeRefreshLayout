@@ -1,5 +1,6 @@
 package com.hexuejian.waveswiperefreshlayout;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -8,14 +9,16 @@ import android.graphics.RadialGradient;
 import android.graphics.Shader;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
-import android.support.v4.view.ViewCompat;
 import android.view.animation.Animation;
 import android.widget.ImageView;
+
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.view.ViewCompat;
 
 /**
  * Created by Administrator on 2015/12/22 0022.
  */
-class CircleImageView extends ImageView {
+class CircleImageView extends AppCompatImageView {
 
     private static final int KEY_SHADOW_COLOR = 0x1E000000;
     private static final int FILL_SHADOW_COLOR = 0x3D000000;
@@ -28,6 +31,7 @@ class CircleImageView extends ImageView {
     private Animation.AnimationListener mListener;
     private int mShadowRadius;
 
+    @SuppressLint("WrongConstant")
     public CircleImageView(Context context, int color, final float radius) {
         super(context);
         final float density = getContext().getResources().getDisplayMetrics().density;
