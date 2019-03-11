@@ -40,7 +40,7 @@ public class WaterWave extends LinearLayout {
         final TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.WaterWave);
         mAboveWaveColor = attributes.getColor(R.styleable.WaterWave_above_wave_color, DEFAULT_ABOVE_WAVE_COLOR);
         mBlowWaveColor = attributes.getColor(R.styleable.WaterWave_blow_wave_color, DEFAULT_BLOW_WAVE_COLOR);
-        mProgress = attributes.getInt(R.styleable.WaterWave_progress, DEFAULT_PROGRESS);
+        mProgress = attributes.getInt(R.styleable.WaterWave_wave_progress, DEFAULT_PROGRESS);
         mWaveHeight = attributes.getInt(R.styleable.WaterWave_wave_height, MIDDLE);
         mWaveMultiple = attributes.getInt(R.styleable.WaterWave_wave_length, LARGE);
         mWaveHz = attributes.getInt(R.styleable.WaterWave_wave_hz, LARGE);
